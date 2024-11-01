@@ -1,3 +1,9 @@
 <h1>{{ title }}</h1>
+<p>{{ text }}</p>
+<img [src]="itemImageUrl" alt="item" />
+<button mat-stroked-button (click)="onButtonClicked()">VAIHDA KUVA</button>
 
-
+<div class="helloInputDiv">
+  <p>Muuuta otsikkoa:</p>
+  <input matInput [(ngModel)]="text" />
+</div>

@@ -1,0 +1,11 @@
+img {
+  width: 100%;
+}
+p {
+  margin-right: 10px;
+}
+.helloInputDiv {
+  display: flex;
+  align-content: center;
+  margin-top: 20px;
+}
