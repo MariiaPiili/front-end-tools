@@ -1,0 +1,9 @@
+<h1>{{ title }}</h1>
+<div class="container">
+  <input class="result" [value]="result" readonly />
+  <mat-grid-list cols="4" rowHeight="80px">
+    <mat-grid-tile *ngFor="let button of buttons">
+      <button mat-raised-button (click)="addValue(button)">{{ button }}</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

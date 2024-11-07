@@ -1,0 +1,14 @@
+.container {
+  background-color: skyblue;
+  padding: 10px;
+  border-radius: 40px;
+  max-width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.result {
+  background-color: white;
+  width: 85%;
+  height: 50px;
+}
