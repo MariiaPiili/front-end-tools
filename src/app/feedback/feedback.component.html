@@ -1,0 +1,10 @@
+<h1>{{ title }}</h1>
+<div class="container">
+  <div *ngFor="let question of questions">
+    <h3>{{ question.questionTitle }}</h3>
+    <mat-slider min="1" max="4" step="1">
+      <input matSliderThumb (input)="onInputChange($event, question)" />
+    </mat-slider>
+    <p>{{ question.questionAnswer }}</p>
+  </div>
+</div>
