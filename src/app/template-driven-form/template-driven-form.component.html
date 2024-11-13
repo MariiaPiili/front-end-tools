@@ -1,1 +1,181 @@
-<p>template-driven-form works!</p>
+<h1>{{ title }}</h1>
+<form
+  #registrationForm="ngForm"
+  (ngSubmit)="onSubmit(registrationForm)"
+  class="registration-form"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>First name</mat-label>
+    <input
+      matInput
+      type="text"
+      name="firstName"
+      [(ngModel)]="user.firstName"
+      #firstName="ngModel"
+      required
+      pattern="^[a-zA-Z]+$"
+      minlength="2"
+    />
+    <mat-error
+      *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+    >
+      <div *ngIf="firstName.errors?.['required']">First name is required.</div>
+      <div *ngIf="firstName.errors?.['pattern']">Only letters are allowed.</div>
+      <div *ngIf="firstName.errors?.['minlength']">
+        Minimum 2 characters required.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last name</mat-label>
+    <input
+      matInput
+      type="text"
+      name="lastName"
+      [(ngModel)]="user.lastName"
+      #lastName="ngModel"
+      required
+      pattern="^[a-zA-Z]+$"
+      minlength="2"
+    />
+    <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+      <div *ngIf="lastName.errors?.['required']">Last name is required.</div>
+      <div *ngIf="lastName.errors?.['pattern']">Only letters are allowed.</div>
+      <div *ngIf="lastName.errors?.['minlength']">
+        Minimum 2 characters required.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Person ID</mat-label>
+    <input
+      matInput
+      type="text"
+      name="personId"
+      [(ngModel)]="user.personId"
+      #personId="ngModel"
+      required
+      pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d\+|\d\d[-U-Y]|[0-2]\d[A-F])\d{3}[\dA-Z]"
+    />
+    <mat-error *ngIf="personId.invalid && (personId.dirty || personId.touched)">
+      <div *ngIf="personId.errors?.['required']">Person ID is required.</div>
+      <div *ngIf="personId.errors?.['pattern']">
+        Invalid Finnish person ID format.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      name="email"
+      [(ngModel)]="user.email"
+      #email="ngModel"
+      required
+      email
+    />
+    <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors?.['required']">Email is required.</div>
+      <div *ngIf="email.errors?.['email']">
+        Please enter a valid email address.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      type="text"
+      name="username"
+      [(ngModel)]="user.username"
+      #username="ngModel"
+      required
+      minlength="6"
+    />
+    <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
+      <div *ngIf="username.errors?.['required']">Username is required.</div>
+      <div *ngIf="username.errors?.['minlength']">
+        Minimum 6 characters required.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      name="password"
+      [(ngModel)]="user.password"
+      #password="ngModel"
+      required
+      minlength="10"
+      pattern="^(?=.*[A-Z])(?=.*\d).{10,}$"
+    />
+    <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors?.['required']">Password is required.</div>
+      <div *ngIf="password.errors?.['minlength']">
+        Minimum 10 characters required.
+      </div>
+      <div *ngIf="password.errors?.['pattern']">
+        Password must contain an uppercase letter and a number.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Confirm password</mat-label>
+    <input
+      matInput
+      type="password"
+      name="confirmPassword"
+      [(ngModel)]="user.confirmPassword"
+      #confirmPassword="ngModel"
+      required
+      [pattern]="user.password"
+    />
+    <mat-error
+      *ngIf="
+        confirmPassword.invalid &&
+        (confirmPassword.dirty || confirmPassword.touched)
+      "
+    >
+      <div *ngIf="confirmPassword.errors?.['required']">
+        Please confirm your password.
+      </div>
+      <div *ngIf="confirmPassword.errors?.['pattern']">
+        Passwords do not match.
+      </div>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox
+    name="termsAccepted"
+    [(ngModel)]="user.termsAccepted"
+    #termsAccepted="ngModel"
+    required
+  >
+    Accept terms and conditions
+  </mat-checkbox>
+  <mat-error
+    *ngIf="
+      termsAccepted.invalid && (termsAccepted.dirty || termsAccepted.touched)
+    "
+  >
+    You must accept the terms and conditions.
+  </mat-error>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="registrationForm.invalid"
+  >
+    Submit
+  </button>
+</form>

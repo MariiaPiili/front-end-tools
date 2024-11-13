@@ -1,0 +1,13 @@
+.registration-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;    
+  }
+  
+  mat-form-field,
+  mat-checkbox {
+    width: 100%;
+    margin-bottom: 15px;
+  }
