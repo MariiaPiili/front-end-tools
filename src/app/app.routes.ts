@@ -4,6 +4,7 @@ import { HelloWorldComponent } from "./hello-world/hello-world.component";
 import { CalculatorComponent } from './calculator/calculator.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 export const routes: Routes = [
     { path:"", redirectTo: '/hello', pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'calculator', component: CalculatorComponent },
     { path: 'feedback', component: FeedbackComponent },
     { path: 'template', component: TemplateDrivenFormComponent},
+    { path: 'reactive', component: ReactiveFormComponent},
     { path: '**', component: PageNotFoundComponent }
 ];

@@ -1,0 +1,177 @@
+<h1>Registration Form</h1>
+<form
+  [formGroup]="registrationForm"
+  (ngSubmit)="onSubmit()"
+  class="registration-form"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput [formControl]="firstName" />
+    <mat-error
+      *ngIf="
+        firstName.hasError('required') && (firstName.dirty || firstName.touched)
+      "
+    >
+      First name is required.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        firstName.hasError('minlength') &&
+        (firstName.dirty || firstName.touched)
+      "
+    >
+      Minimum 2 characters.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        firstName.hasError('pattern') && (firstName.dirty || firstName.touched)
+      "
+    >
+      Only letters allowed.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput [formControl]="lastName" />
+    <mat-error
+      *ngIf="
+        lastName.hasError('required') && (lastName.dirty || lastName.touched)
+      "
+    >
+      Last name is required.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        lastName.hasError('minlength') && (lastName.dirty || lastName.touched)
+      "
+    >
+      Minimum 2 characters.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        lastName.hasError('pattern') && (lastName.dirty || lastName.touched)
+      "
+    >
+      Only letters allowed.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Person ID</mat-label>
+    <input matInput [formControl]="personId" />
+    <mat-error
+      *ngIf="
+        personId.hasError('required') && (personId.dirty || personId.touched)
+      "
+    >
+      Person ID is required.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        personId.hasError('pattern') && (personId.dirty || personId.touched)
+      "
+    >
+      Invalid Finnish person ID format.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [formControl]="email" />
+    <mat-error
+      *ngIf="email.hasError('required') && (email.dirty || email.touched)"
+    >
+      Email is required.
+    </mat-error>
+    <mat-error
+      *ngIf="email.hasError('email') && (email.dirty || email.touched)"
+    >
+      Invalid email format.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput [formControl]="username" />
+    <mat-error
+      *ngIf="
+        username.hasError('required') && (username.dirty || username.touched)
+      "
+    >
+      Username is required.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        username.hasError('minlength') && (username.dirty || username.touched)
+      "
+    >
+      Minimum 6 characters.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" [formControl]="password" />
+    <mat-error
+      *ngIf="
+        password.hasError('required') && (password.dirty || password.touched)
+      "
+    >
+      Password is required.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        password.hasError('minlength') && (password.dirty || password.touched)
+      "
+    >
+      Minimum 10 characters.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        password.hasError('pattern') && (password.dirty || password.touched)
+      "
+    >
+      Must include uppercase letters and numbers.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput type="password" [formControl]="confirmPassword" />
+    <mat-error
+      *ngIf="
+        confirmPassword.hasError('required') &&
+        (confirmPassword.dirty || confirmPassword.touched)
+      "
+    >
+      Confirm password is required.
+    </mat-error>
+    <mat-error
+      *ngIf="registrationForm.hasError('mismatch') && confirmPassword.dirty"
+    >
+      Passwords do not match.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox [formControl]="termsAccepted">
+    I accept the terms and conditions
+  </mat-checkbox>
+  <mat-error
+    *ngIf="
+      termsAccepted.hasError('required') &&
+      (termsAccepted.dirty || termsAccepted.touched)
+    "
+  >
+    You must accept the terms.
+  </mat-error>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="registrationForm.invalid"
+  >
+    Submit
+  </button>
+</form>

@@ -57,7 +57,7 @@
       [(ngModel)]="user.personId"
       #personId="ngModel"
       required
-      pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d\+|\d\d[-U-Y]|[0-2]\d[A-F])\d{3}[\dA-Z]"
+      pattern="^(0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])([5-9]\d\+|\d\d[-U-Y]|[0-2]\d[A-F])\d{3}[\dA-Z]$"
     />
     <mat-error *ngIf="personId.invalid && (personId.dirty || personId.touched)">
       <div *ngIf="personId.errors?.['required']">Person ID is required.</div>
