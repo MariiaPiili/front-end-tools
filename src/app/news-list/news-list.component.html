@@ -1,0 +1,25 @@
+<h1>Finnkino Uutisia</h1>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let item of news">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ item.Title }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ item.PublishDate | date : "longDate" }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>
+      <img
+        *ngIf="item.ThumbnailURL"
+        [src]="item.ThumbnailURL"
+        alt="{{ item.Title }}"
+        style="max-width: 100%; height: auto; margin-bottom: 10px"
+      />
+      <p>{{ item.HTMLLead }}</p>
+      <a *ngIf="item.ArticleURL" [href]="item.ArticleURL" target="_blank"
+        >Read more</a
+      >
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
