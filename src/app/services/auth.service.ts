@@ -23,11 +23,11 @@ export class AuthService {
     this.loggedInUser.next(null);
     this.router.navigate(['/login']);
   }
-  
+
   getLoggedInUser(): Observable<string | null> {
-    return this.loggedInUser.asObservable(); 
+    return this.loggedInUser.asObservable();
   }
-  
+
   isLoggedIn(): boolean {
     return !!this.loggedInUser.value;
   }

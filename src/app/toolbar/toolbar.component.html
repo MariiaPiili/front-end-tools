@@ -8,6 +8,24 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Front - end työkalut</span>
+  <div class="spacer"></div>
+  <!-- LOG IN / LOG OUT  -->
+  <button
+    mat-raised-button
+    *ngIf="!(userEmail$ | async)"
+    (click)="navigateToLogin()"
+  >
+    LOG IN
+  </button>
+  <div
+    *ngIf="userEmail$ | async as email"
+    style="display: flex; align-items: center"
+  >
+    <span>{{ email }}</span>
+    <button mat-raised-button (click)="logout()" style="margin-left: 8px">
+      LOG OUT
+    </button>
+  </div>
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
