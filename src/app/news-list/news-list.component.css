@@ -8,3 +8,25 @@ img {
   margin: 10px 0;
   border-radius: 5px;
 }
+
+mat-panel-title {
+  flex: 3;
+  white-space: normal;
+  overflow-wrap: break-word;
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+mat-panel-description {
+  flex: 1;
+  text-align: right;
+  font-size: 16px;
+}
+
+mat-expansion-panel-header {
+  min-height: auto;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}

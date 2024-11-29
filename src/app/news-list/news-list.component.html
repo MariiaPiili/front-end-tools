@@ -1,6 +1,11 @@
 <h1>Finnkino Uutisia</h1>
+<mat-form-field>
+  <mat-label>Haetko tiettyä uutista?</mat-label>
+  <input matInput placeholder="Kirjoita hakusana" [(ngModel)]="searchTerm" />
+</mat-form-field>
+
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let item of news">
+  <mat-expansion-panel *ngFor="let item of news | newsFilter : searchTerm">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{ item.Title }}
@@ -14,7 +19,6 @@
         *ngIf="item.ThumbnailURL"
         [src]="item.ThumbnailURL"
         alt="{{ item.Title }}"
-        style="max-width: 100%; height: auto; margin-bottom: 10px"
       />
       <p>{{ item.HTMLLead }}</p>
       <a *ngIf="item.ArticleURL" [href]="item.ArticleURL" target="_blank"
