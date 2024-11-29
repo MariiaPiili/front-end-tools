@@ -1,0 +1,22 @@
+<div class="login-container">
+    <div class="login-box">
+      <h1>Authentication to admin view</h1>
+      <input
+        type="email"
+        placeholder="Email Address"
+        [(ngModel)]="email"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+      <div style="display: flex; justify-content: space-between;">
+        <button (click)="login()">Login</button>
+        <button class="cancel">Cancel</button>
+      </div>
+      <p *ngIf="error">{{ error }}</p>
+    </div>
+  </div>
+  
+  

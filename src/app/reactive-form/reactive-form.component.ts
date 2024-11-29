@@ -14,18 +14,18 @@ import {
 import { User } from '../models/user';
 
 @Component({
-  selector: 'app-reactive-form',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
-  templateUrl: './reactive-form.component.html',
-  styleUrl: './reactive-form.component.css',
+    selector: 'app-reactive-form',
+    standalone:true,
+    imports: [
+        ReactiveFormsModule,
+        CommonModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+    templateUrl: './reactive-form.component.html',
+    styleUrl: './reactive-form.component.css'
 })
 export class ReactiveFormComponent {
   title: string = 'Reactive form';

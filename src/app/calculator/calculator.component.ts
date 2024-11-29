@@ -4,11 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-calculator',
-  standalone: true,
-  imports: [MatGridListModule, MatButtonModule, CommonModule],
-  templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.css',
+    selector: 'app-calculator',
+    standalone: true,
+    imports: [MatGridListModule, MatButtonModule, CommonModule],
+    templateUrl: './calculator.component.html',
+    styleUrl: './calculator.component.css'
 })
 export class CalculatorComponent {
   title: string = 'Laskin';

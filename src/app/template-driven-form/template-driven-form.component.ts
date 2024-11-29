@@ -8,19 +8,19 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-template-driven-form',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    CommonModule,
-    FormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    ReactiveFormsModule
-  ],
-  templateUrl: './template-driven-form.component.html',
-  styleUrl: './template-driven-form.component.css',
+    selector: 'app-template-driven-form',
+    standalone: true,
+    imports: [
+        MatFormFieldModule,
+        CommonModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        ReactiveFormsModule
+    ],
+    templateUrl: './template-driven-form.component.html',
+    styleUrl: './template-driven-form.component.css'
 })
 export class TemplateDrivenFormComponent {
   title: string = 'Template driven form';

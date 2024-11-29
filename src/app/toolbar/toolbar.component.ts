@@ -6,17 +6,17 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
-  selector: 'app-toolbar',
-  standalone: true,
-  imports: [
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    RouterLink,
-    RouterLinkActive,
-    MatMenuModule,
-  ],
-  templateUrl: './toolbar.component.html',
-  styleUrl: './toolbar.component.css',
+    selector: 'app-toolbar',
+    standalone: true,
+    imports: [
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        RouterLink,
+        RouterLinkActive,
+        MatMenuModule,
+    ],
+    templateUrl: './toolbar.component.html',
+    styleUrl: './toolbar.component.css'
 })
 export class ToolbarComponent {}

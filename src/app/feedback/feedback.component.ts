@@ -7,11 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { CoursesService } from '../courses.service';
 
 @Component({
-  selector: 'app-feedback',
-  standalone: true,
-  imports: [MatSliderModule, MatCardModule, CommonModule, FormsModule],
-  templateUrl: './feedback.component.html',
-  styleUrl: './feedback.component.css',
+    selector: 'app-feedback',
+    standalone: true,
+    imports: [MatSliderModule, MatCardModule, CommonModule, FormsModule],
+    templateUrl: './feedback.component.html',
+    styleUrl: './feedback.component.css'
 })
 export class FeedbackComponent {
   title: string = 'Feedback';

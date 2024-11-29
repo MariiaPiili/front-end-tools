@@ -9,19 +9,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-news-list',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatExpansionModule,
-    HttpClientModule,
-    NewsFilterPipe,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-  ],
-  templateUrl: './news-list.component.html',
-  styleUrls: ['./news-list.component.css'],
+    selector: 'app-news-list',
+    standalone: true,
+    imports: [
+        CommonModule,
+        MatExpansionModule,
+        HttpClientModule,
+        NewsFilterPipe,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+    templateUrl: './news-list.component.html',
+    styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit {
   news: any[] = [];

@@ -4,11 +4,11 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-hello-world',
-  standalone: true,
-  imports: [MatButtonModule, MatInputModule, FormsModule],
-  templateUrl: './hello-world.component.html',
-  styleUrl: './hello-world.component.css'
+    selector: 'app-hello-world',
+    standalone: true, 
+    imports: [MatButtonModule, MatInputModule, FormsModule],
+    templateUrl: './hello-world.component.html',
+    styleUrl: './hello-world.component.css'
 })
 export class HelloWorldComponent {
   title: string="Harjoittelua";

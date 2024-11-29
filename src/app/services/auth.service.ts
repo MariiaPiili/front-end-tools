@@ -1,39 +1,34 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = false; // Хранит статус авторизации
+  private loggedInUser = new BehaviorSubject<string | null>(null);
 
-  /**
-   * Метод для входа в систему
-   * @param username Имя пользователя
-   * @param password Пароль
-   * @returns boolean — успешный или неуспешный вход
-   */
-  login(username: string, password: string): boolean {
-    // Пример проверки (можно заменить на запрос к серверу)
-    if (username === 'admin' && password === 'password') {
-      this.isAuthenticated = true; // Устанавливаем статус как авторизованный
+  constructor(private router: Router) {}
+
+  login(email: string, password: string): boolean {
+    if (email === 'admin@example.com' && password === 'password') {
+      this.loggedInUser.next(email);
+      this.router.navigate(['/admin']);
       return true;
-    } else {
-      return false; // Данные не совпадают
     }
+    return false;
   }
 
-  /**
-   * Метод для выхода из системы
-   */
   logout(): void {
-    this.isAuthenticated = false; // Сбрасываем статус авторизации
+    this.loggedInUser.next(null);
+    this.router.navigate(['/login']);
   }
-
-  /**
-   * Метод для проверки, авторизован ли пользователь
-   * @returns boolean
-   */
+  
+  getLoggedInUser(): Observable<string | null> {
+    return this.loggedInUser.asObservable(); 
+  }
+  
   isLoggedIn(): boolean {
-    return this.isAuthenticated; // Возвращаем статус
+    return !!this.loggedInUser.value;
   }
 }

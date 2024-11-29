@@ -1,0 +1,19 @@
+div {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h2 {
+    color: green;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
