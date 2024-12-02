@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   password = '';
   error = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
     const success = this.authService.login(this.email, this.password);
@@ -23,4 +24,8 @@ export class LoginComponent {
       this.error = 'Invalid credentials';
     }
   }
+  cancel(): void {
+    this.router.navigate(['calculator']);
+  }
+
 }

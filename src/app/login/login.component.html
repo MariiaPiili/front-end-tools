@@ -13,7 +13,7 @@
       />
       <div style="display: flex; justify-content: space-between;">
         <button (click)="login()">Login</button>
-        <button class="cancel">Cancel</button>
+        <button (click)="cancel()" class="cancel">Cancel</button>
       </div>
       <p *ngIf="error">{{ error }}</p>
     </div>
