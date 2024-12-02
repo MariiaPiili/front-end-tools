@@ -30,7 +30,8 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/front-end-tools/"
           },
           "configurations": {
             "production": {
@@ -91,6 +92,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
