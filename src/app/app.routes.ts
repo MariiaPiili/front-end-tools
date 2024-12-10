@@ -9,6 +9,7 @@ import { NewsListComponent } from './news-list/news-list.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
+import { TenttiComponent } from './tentti/tentti.component';
 
 export const routes: Routes = [
     
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: 'template', component: TemplateDrivenFormComponent},
     { path: 'reactive', component: ReactiveFormComponent},    
     {path: 'news-list', component: NewsListComponent},
+    {path: 'tentti', component: TenttiComponent},
     {path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     {path: 'login', component: LoginComponent},
     { path: '**', component: PageNotFoundComponent }

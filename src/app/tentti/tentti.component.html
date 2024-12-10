@@ -1,0 +1,61 @@
+<mat-card>
+  <h1 class="header">Maatalousnäyttelyn 2025 liput nyt myynnissä</h1>
+  <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let ticket of ticketTypes" class="ticket-row">
+      <span class="ticket-label">{{ ticket.label }}</span>
+      <button
+        mat-icon-button
+        class="action-button"
+        (click)="updateQuantity(ticket, -1)"
+        [disabled]="ticket.quantity <= 0"
+      >
+        <mat-icon>remove</mat-icon>
+      </button>
+      <span class="ticket-quantity">{{ ticket.quantity }}</span>
+      <button
+        mat-icon-button
+        class="action-button"
+        (click)="updateQuantity(ticket, 1)"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <mat-checkbox formControlName="isMember" class="checkbox">
+      MTK:n jäsen
+    </mat-checkbox>
+
+    <div class="total-price">
+      <span>Yhteensä</span>
+      <span>{{ calculateTotalPrice() }} €</span>
+    </div>
+
+    <p>Täytä tilaajan tiedot</p>
+
+    <mat-form-field appearance="fill">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName" required />
+    </mat-form-field>
+
+    <p>Liput lähetetään sähköpostiosoitteeseen</p>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" required />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="ticketForm.invalid"
+    >
+      OSTA LIPUT
+    </button>
+  </form>
+</mat-card>
